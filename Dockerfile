@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Копируем файл с зависимостями
 COPY requirements.txt .
+RUN python -m pip install --upgrade pip && pip install -r requirements.txt
 
 # Устанавливаем зависимости
 RUN useradd -m app && mkdir -p /app/uploads /app/reports && chown -R app:app /app
